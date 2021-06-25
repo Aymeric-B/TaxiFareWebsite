@@ -62,12 +62,11 @@ def get_map_data():
         )
 
 
-if st.button('Show trip', False):
-    df = get_empy_map()
+if st.button('Show trip'):
+    df = get_map_data()
     st.map(df)
 else:
     st.map()
-
 
 
 
