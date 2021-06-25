@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 import requests
+import pandas as pd
 
 '''
 # TaxiFareModel front
@@ -49,7 +50,28 @@ params = {
 }
 
 
+# show a map
+@st.cache
+def get_map_data():
+    print('get_map_data called')
+    return pd.DataFrame(
+        {
+            'lat' : 10,
+            'lon' : 10
+        }
+        )
 
+
+if st.button('Show trip', False):
+    df = get_empy_map()
+    st.map(df)
+else:
+    st.map()
+
+
+
+
+# gives the price when clicked
 if st.button('Give me the price'):
     response = requests.get(url, params=params).json()
     price = '{:,.2f}'.format(response['prediction'])
@@ -57,5 +79,3 @@ if st.button('Give me the price'):
 else :
     st.write("Waiting for your question")
 
-
-st.write("Yahouuuu new")
