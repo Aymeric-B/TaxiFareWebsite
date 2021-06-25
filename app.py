@@ -1,4 +1,3 @@
-from os import stat
 import streamlit as st
 import datetime
 import requests
@@ -59,3 +58,4 @@ else :
     st.write("Waiting for your question")
 
 
+st.write("Yahouuuu")
